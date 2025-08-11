@@ -1,0 +1,7 @@
+# config/lpr_yolo.yaml
+path: data/lpr/ccpd_yolo
+train: images/train
+val: images/val
+# test: images/test
+
+names: ['license_plate']

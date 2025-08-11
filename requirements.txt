@@ -1,0 +1,8 @@
+torch>=1.13
+torchvision
+opencv-python
+numpy
+tqdm
+matplotlib
+paddleocr
+ultralytics  # YOLOv8
