@@ -1,0 +1,5 @@
+ccpd_yolo/
+runs/
+*.cache
+__pycache__/
+.venv/

@@ -1,3 +1,4 @@
+from utils.paths import abspath, DEVICE, RUNS_DIR
 import argparse
 import os
 import sys
@@ -123,12 +124,10 @@ def parse_args():
 
 
 def main():
-    args = parse_args()
-    src = Path(args.source)
-    save_dir = Path(args.save_dir)
-
-    lpr = LicensePlateRecognizer(det_model_path=args.det_model, ocr_lang=args.ocr_lang, device=args.device)
-
+    args.det_model = str(abspath(args.det_model))
+    args.save_dir  = str(abspath(args.save_dir or (RUNS_DIR / 'lpr_infer')))
+    device = args.device if args.device else DEVICE
+    lpr = LicensePlateRecognizer(det_model_path=args.det_model, ocr_lang=args.ocr_lang, device=device)
     mode = args.mode
     if mode == "auto":
         if src.is_dir():

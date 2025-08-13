@@ -3,12 +3,12 @@ import cv2
 from paddleocr import PaddleOCR
 from ultralytics import YOLO
 import numpy as np
-
+from utils.paths import abspath
 
 class LicensePlateRecognizer:
-    def __init__(self, det_model_path='yolov8n.pt', ocr_lang='ch', device='cuda'):
-        self.device = device if torch.cuda.is_available() else 'cpu'
-        self.det_model = YOLO(det_model_path).to(self.device)
+    def __init__(self, det_model_path='yolov8n.pt', ocr_lang='ch', device='0'):
+        self.device = device if device != 'cuda' else '0'
+        self.det_model = YOLO(str(abspath(det_model_path)))
         self.ocr = PaddleOCR(use_angle_cls=True, lang=ocr_lang)
 
     def detect_plate(self, image):
