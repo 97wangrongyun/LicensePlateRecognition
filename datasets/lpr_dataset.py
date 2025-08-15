@@ -8,7 +8,7 @@ from torchvision import transforms
 class CCPDLPRDataset(Dataset):
     """
     CCPD2019 数据集的 PyTorch Dataset 类
-    假设图像文件名中包含车牌号，如：XXXXX_粤B12345.jpg
+    图像文件名中包含车牌号，如：XXXXX_粤B12345.jpg
     """
     def __init__(self, image_dir, transform=None):
         self.image_dir = image_dir
@@ -46,3 +46,4 @@ class CCPDLPRDataset(Dataset):
             image = self.transform(image)
 
         return image, label
+
