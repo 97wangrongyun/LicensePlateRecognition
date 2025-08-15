@@ -100,7 +100,7 @@ def process_video(lpr: LicensePlateRecognizer, video_path: Path, save_dir: Path 
             draw_bbox(frame, bbox, text)
         if writer is not None:
             writer.write(frame)
-        # 若需要实时可视化，取消注释：
+        # 实时可视化，取消注释：
         # cv2.imshow('LPR', frame)
         # if cv2.waitKey(1) & 0xFF == 27:
         #     break
@@ -150,4 +150,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
